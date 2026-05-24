@@ -124,19 +124,6 @@
 
 <div class="entry">
   <div class="entry-header">
-    <span class="entry-title">job-hunt eval framework</span>
-    <span class="entry-meta">May 2026 · research / automation</span>
-  </div>
-  <div class="entry-sub">Eval framework and production pipeline for auto-generating cover letters against hh.ru job postings</div>
-  <ul>
-    <li>Pipeline: pull → dedup → score → filter → employer-research → generate; structured retry guard with one-shot regeneration on format violation; per-vacancy variant selection.</li>
-    <li>A/B tested gpt-5.5-codex against MiMo V2.5-Pro across reasoning_effort tiers; measured cached_tokens, reasoning_tokens, latency per call.</li>
-    <li>Achieved 5× cost reduction (~$0.009 per letter, 4 to 7 seconds latency) while passing all hard-rule format checks (banned openers, AI-tells, length bounds, quote constraints).</li>
-  </ul>
-</div>
-
-<div class="entry">
-  <div class="entry-header">
     <span class="entry-title">revenue-metrics-console</span>
     <span class="entry-meta">2025 · <a href="https://github.com/kudnever/revenue-metrics-console">github.com/kudnever/revenue-metrics-console</a></span>
   </div>
