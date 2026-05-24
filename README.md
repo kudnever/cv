@@ -1,45 +1,36 @@
 # cv
 
-Резюме Ильи Малкина в трёх форматах.
+Резюме Ильи Малкина в двух языках.
 
-## Онлайн-версия
+## Готовые PDF
 
-**https://kudnever.github.io/cv/** (на русском, с фото и dark mode)
+- [`kudnever-cv-en.pdf`](kudnever-cv-en.pdf) · английская версия (EU / LinkedIn / прямой аутрич)
+- [`kudnever-cv-ru.pdf`](kudnever-cv-ru.pdf) · русская версия (hh.ru / RU-аутрич)
 
-## PDF
+Прямые ссылки для отправки рекрутерам:
+- https://github.com/kudnever/cv/raw/main/kudnever-cv-en.pdf
+- https://github.com/kudnever/cv/raw/main/kudnever-cv-ru.pdf
 
-- `kudnever-cv-en.pdf` · английская версия для EU / LinkedIn / прямого аутрича
-- `kudnever-cv-ru.pdf` · русская версия для hh.ru / RU-аутрича
+## Source
 
-Обе сгенерированы из соответствующих HTML через headless Edge.
+- `cv-en-pdf.html` · source англоязычного PDF
+- `cv-ru-pdf.html` · source русскоязычного PDF
 
-## Структура
+A4, single-column, ATS-friendly, без em-dashes. Стиль зеркалит классический backend-CV: SUMMARY, PROJECTS, TECHNICAL SKILLS, EDUCATION, LANGUAGES.
 
-| Файл | Назначение |
-|---|---|
-| `index.html` + `style.css` + `photo.jpg` | онлайн-версия (GitHub Pages) |
-| `cv-en-pdf.html` | source для англоязычного PDF |
-| `cv-ru-pdf.html` | source для русскоязычного PDF |
-| `kudnever-cv-en.pdf` | готовый английский PDF |
-| `kudnever-cv-ru.pdf` | готовый русский PDF |
+## Пересборка PDF
 
-## Локальная пересборка PDF
+PowerShell:
 
 ```powershell
 $edge = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 $profile = "C:\Users\V\AppData\Local\Temp\edge-cv"
 
-# EN
 & $edge --headless --disable-gpu --no-pdf-header-footer --print-to-pdf-no-header `
   --user-data-dir=$profile `
   --print-to-pdf="kudnever-cv-en.pdf" "file:///$(Resolve-Path cv-en-pdf.html)"
 
-# RU
 & $edge --headless --disable-gpu --no-pdf-header-footer --print-to-pdf-no-header `
   --user-data-dir=$profile `
   --print-to-pdf="kudnever-cv-ru.pdf" "file:///$(Resolve-Path cv-ru-pdf.html)"
 ```
-
-## Обновление онлайн-версии
-
-После пуша в `main` GitHub Pages автоматически передеплоит. Кэш браузера может держать старую версию пару минут, поэтому при проверке открой в режиме инкогнито.
