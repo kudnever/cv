@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ilia Malkin · CV</title>
+<style>
+  @page { size: A4; margin: 14mm 16mm; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.42;
+    color: #1a1a1a;
+  }
+  .name {
+    font-size: 22pt;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 2pt;
+    letter-spacing: -0.01em;
+  }
+  .role {
+    font-size: 11pt;
+    text-align: center;
+    color: #444;
+    margin: 0 0 4pt;
+    font-style: italic;
+  }
+  .contacts {
+    text-align: center;
+    font-size: 9.5pt;
+    color: #444;
+    margin: 0 0 14pt;
+  }
+  .contacts a { color: #2563eb; text-decoration: none; }
+  h2 {
+    font-size: 9.5pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin: 12pt 0 4pt;
+    padding: 0 0 2pt;
+    border-bottom: 0.5pt solid #999;
+    text-transform: uppercase;
+  }
+  p { margin: 0 0 6pt; }
+  .summary { margin: 0 0 6pt; text-align: justify; }
+  .entry { margin: 0 0 8pt; }
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10pt;
+    margin: 0 0 1pt;
+  }
+  .entry-title { font-weight: 700; font-size: 10.5pt; }
+  .entry-meta { font-size: 9.5pt; color: #555; white-space: nowrap; }
+  .entry-sub {
+    font-size: 9.5pt;
+    color: #555;
+    font-style: italic;
+    margin: 0 0 3pt;
+  }
+  ul {
+    margin: 2pt 0 0;
+    padding-left: 16pt;
+  }
+  li { margin: 0 0 2pt; }
+  .skills-row { margin: 0 0 3pt; font-size: 10pt; }
+  .skills-row b { display: inline-block; min-width: 110pt; }
+  .edu-row { display: flex; justify-content: space-between; align-items: baseline; gap: 10pt; }
+  .lang { font-size: 10pt; }
+  a { color: #2563eb; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="name">Ilia Malkin</div>
+<div class="role">Junior Python Engineer · LLM integrations &amp; backend automation</div>
+<div class="contacts">
+  Vienna, Austria · <a href="mailto:ilyamalkinn@gmail.com">ilyamalkinn@gmail.com</a> · <a href="https://github.com/kudnever">github.com/kudnever</a> · <a href="https://kudnever.github.io/cv/">kudnever.github.io/cv</a>
+</div>
+
+<h2>Summary</h2>
+<p class="summary">
+  Backend-focused Python engineer with a Data Science background (Universität Wien), building production LLM
+  pipelines, agentic systems and multi-provider LLM routers with fallback and circuit breaker logic.
+  No team experience yet; five open-source projects of varying depth back the resume instead. Strongest in
+  LLM SDK integration (OpenAI, Gemini, xAI/Grok, MiMo, OpenRouter), async Python, prompt engineering,
+  Pydantic-typed structured outputs and multi-provider fallback patterns. Looking for junior backend / AI-engineering
+  roles, remote or Vienna-based.
+</p>
+
+<h2>Projects</h2>
+
+<div class="entry">
+  <div class="entry-header">
+    <span class="entry-title">Stager · multi-tenant expense tracker</span>
+    <span class="entry-meta">May 2026 · <a href="https://github.com/kudnever/stager">github.com/kudnever/stager</a></span>
+  </div>
+  <div class="entry-sub">Telegram bot + FastAPI backend + Next.js admin for receipt-photo OCR via LLM</div>
+  <ul>
+    <li>Designed and shipped a 9-service Docker Compose stack (bot, api, worker, beat, postgres, redis, minio, web, caddy) on a single Hetzner VPS; full Alembic migrations, healthchecks, Caddy TLS.</li>
+    <li>Built a custom LLM router (MiMo → Gemini fallback) with Redis-based soft circuit breaker, Pydantic-validated structured output, structlog metrics and per-request fallback-reason logging.</li>
+    <li>Backend in FastAPI + Pydantic v2 + async SQLAlchemy 2.0 (PostgreSQL 16); JWT auth + RBAC (owner/editor/viewer); invite-token redeem flow.</li>
+    <li>Bot in aiogram 3 with FSM stored in Redis: photo → OCR → review-card → inline-button edits → expense persistence.</li>
+    <li>Async jobs via Celery + Redis (OCR, XLSX export with openpyxl); Celery Beat for scheduled tasks.</li>
+    <li>Web admin in Next.js 14 (App Router) + Tailwind + recharts, JWT in httpOnly cookie, server actions for mutations.</li>
+    <li>Test stack: pytest + testcontainers (real Postgres + Redis in CI) + respx for LLM mocking; GitHub Actions runs ruff + mypy strict + tests on every PR; pre-commit + gitleaks locally.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-header">
+    <span class="entry-title">doc-assistant-bot · production RAG service</span>
+    <span class="entry-meta">2025 · <a href="https://github.com/kudnever/doc-assistant-bot">github.com/kudnever/doc-assistant-bot</a></span>
+  </div>
+  <div class="entry-sub">Telegram bot that answers questions over uploaded documentation</div>
+  <ul>
+    <li>RAG pipeline on FastAPI + SQLite with sqlite-vec for vector search and fastembed for embeddings; OpenRouter multi-provider LLM routing.</li>
+    <li>Background ingestion worker with pytest-tested guards against malformed inputs; Dockerised deployment.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-header">
+    <span class="entry-title">job-hunt eval framework</span>
+    <span class="entry-meta">May 2026 · research / automation</span>
+  </div>
+  <div class="entry-sub">Eval framework and production pipeline for auto-generating cover letters against hh.ru job postings</div>
+  <ul>
+    <li>Pipeline: pull → dedup → score → filter → employer-research → generate; structured retry guard with one-shot regeneration on format violation; per-vacancy variant selection.</li>
+    <li>A/B tested gpt-5.5-codex against MiMo V2.5-Pro across reasoning_effort tiers; measured cached_tokens, reasoning_tokens, latency per call.</li>
+    <li>Achieved 5× cost reduction (~$0.009 per letter, 4 to 7 seconds latency) while passing all hard-rule format checks (banned openers, AI-tells, length bounds, quote constraints).</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-header">
+    <span class="entry-title">revenue-metrics-console</span>
+    <span class="entry-meta">2025 · <a href="https://github.com/kudnever/revenue-metrics-console">github.com/kudnever/revenue-metrics-console</a></span>
+  </div>
+  <div class="entry-sub">Revenue dashboard frontend with custom filters and chart components</div>
+  <ul>
+    <li>React 18 + TypeScript + Tailwind + TanStack Query for server state; custom period filters, recharts visualisations, loading/error/empty state handling.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-header">
+    <span class="entry-title">windows-claude-code-doctor</span>
+    <span class="entry-meta">2026 · <a href="https://github.com/kudnever/windows-claude-code-doctor">github.com/kudnever/windows-claude-code-doctor</a></span>
+  </div>
+  <div class="entry-sub">Claude Code skill for diagnosing AI agents on Windows</div>
+  <ul>
+    <li>PowerShell-based checks for broken Python environments, PATH conflicts, MCP-provider misconfiguration; published as a reusable Claude Code skill.</li>
+  </ul>
+</div>
+
+<h2>Technical Skills</h2>
+<div class="skills-row"><b>Languages:</b> Python, TypeScript, JavaScript, SQL, PowerShell, Bash</div>
+<div class="skills-row"><b>Backend:</b> FastAPI, Pydantic v2, async SQLAlchemy 2.0, Alembic, aiogram 3, Celery, REST APIs, JWT, RBAC</div>
+<div class="skills-row"><b>LLM / AI:</b> OpenAI SDK, Google Gemini, xAI Grok (OAuth + Agent Tools), MiMo, OpenRouter, RAG (sqlite-vec, fastembed), prompt engineering, structured output, function calling, multi-provider routers with circuit breaker</div>
+<div class="skills-row"><b>Frontend:</b> React 18, Next.js 14 (App Router), Tailwind CSS, TanStack Query, recharts</div>
+<div class="skills-row"><b>Data / Infra:</b> PostgreSQL 16, Redis, MinIO (S3), Docker, Docker Compose, Caddy, Hetzner, Linux</div>
+<div class="skills-row"><b>Quality:</b> pytest, testcontainers, respx, ruff, mypy (strict), pre-commit, gitleaks, structlog, Sentry</div>
+<div class="skills-row"><b>CI / Tools:</b> GitHub Actions, Git, Alembic, OpenAPI</div>
+
+<h2>Education</h2>
+<div class="entry">
+  <div class="edu-row">
+    <span class="entry-title">Universität Wien · BSc in Data Science</span>
+    <span class="entry-meta">in progress</span>
+  </div>
+  <div class="entry-sub">Statistics, machine learning, data processing, algorithms.</div>
+</div>
+
+<h2>Languages</h2>
+<div class="lang">Russian: Native &nbsp;·&nbsp; English: B2 &nbsp;·&nbsp; Deutsch: B2</div>
+
+</body>
+</html>
