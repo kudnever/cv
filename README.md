@@ -24,7 +24,7 @@ PowerShell:
 
 ```powershell
 $edge = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
-$profile = "C:\Users\V\AppData\Local\Temp\edge-cv"
+$profile = "$env:TEMP\edge-cv"
 
 & $edge --headless --disable-gpu --no-pdf-header-footer --print-to-pdf-no-header `
   --user-data-dir=$profile `

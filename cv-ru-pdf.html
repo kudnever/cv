@@ -85,7 +85,7 @@
 <p class="summary">
   Студент Data Science в Венском университете, фокус на Python-бэкенде с LLM-интеграциями: RAG, агентные системы,
   мульти-провайдерные LLM-роутеры с fallback и circuit breaker. Коммерческого опыта в команде нет, вместо него
-  пять open-source проектов разной глубины с production-деплоем. Сильнее всего в: интеграции LLM SDK (OpenAI, Gemini,
+  несколько open-source проектов разной глубины. Сильнее всего в: интеграции LLM SDK (OpenAI, Gemini,
   xAI/Grok, MiMo, OpenRouter), async Python, prompt engineering, валидации structured output через Pydantic,
   паттернах multi-provider fallback. Ищу junior-вакансии backend / AI-engineering. Только удалённая работа; на офис в РФ не рассматриваюсь ни при каких условиях.
 </p>
@@ -105,19 +105,19 @@
     <li>Бот на aiogram 3 с FSM в Redis: фото, OCR, карточка-ревью, inline-кнопки правки, сохранение расхода.</li>
     <li>Async-таски через Celery + Redis (OCR, XLSX-экспорт через openpyxl); Celery Beat для шедулера.</li>
     <li>Web-админка на Next.js 14 (App Router) + Tailwind + recharts, JWT в httpOnly cookie, server actions для мутаций.</li>
-    <li>Тесты: pytest + testcontainers (реальные Postgres и Redis в CI) + respx для мокинга LLM; GitHub Actions гоняет ruff + mypy strict + pytest на каждый PR; pre-commit + gitleaks локально.</li>
+    <li>Тесты: pytest + testcontainers для Postgres/Redis-сценариев + respx для мокинга LLM; GitHub Actions гоняет ruff, mypy и pytest; pre-commit + gitleaks локально.</li>
   </ul>
 </div>
 
 <div class="entry">
   <div class="entry-header">
-    <span class="entry-title">doc-assistant-bot · production RAG-сервис</span>
+    <span class="entry-title">doc-assistant-bot · Telegram RAG-бот</span>
     <span class="entry-meta">2025 · <a href="https://github.com/kudnever/doc-assistant-bot">github.com/kudnever/doc-assistant-bot</a></span>
   </div>
   <div class="entry-sub">Telegram-бот, отвечающий на вопросы по загруженной документации</div>
   <ul>
-    <li>RAG-пайплайн: FastAPI + SQLite с sqlite-vec для векторного поиска и fastembed для эмбеддингов; OpenRouter для мульти-провайдерного роутинга LLM.</li>
-    <li>Фоновый ingestion-воркер с pytest-покрытыми guard'ами против битых файлов; Docker-деплой.</li>
+    <li>Single-process бот на aiogram: SQLite + sqlite-vec для векторного поиска, fastembed для эмбеддингов, OpenRouter для генерации ответов.</li>
+    <li>Поддерживает PDF, DOCX и TXT, отвечает с цитатами, есть интерфейс на 7 языках, pytest-покрытие и GitHub Actions CI.</li>
   </ul>
 </div>
 
@@ -129,6 +129,17 @@
   <div class="entry-sub">Фронт дашборда выручки с кастомными фильтрами и чартами</div>
   <ul>
     <li>React 18 + TypeScript + Tailwind + TanStack Query для server-state; кастомные фильтры по периодам, recharts-визуализации, обработка loading, error, empty состояний.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-header">
+    <span class="entry-title">b2b-outreach-pipeline</span>
+    <span class="entry-meta">2026 · <a href="https://github.com/kudnever/b2b-outreach-pipeline">github.com/kudnever/b2b-outreach-pipeline</a></span>
+  </div>
+  <div class="entry-sub">AI-assisted пайплайн для аутрич-таблиц</div>
+  <ul>
+    <li>Python-пайплайн: seed CSV компаний → website-based personalization → masked CSV/XLSX, цепочка писем и QA summary.</li>
   </ul>
 </div>
 
@@ -148,8 +159,8 @@
 <div class="skills-row"><b>Backend:</b> FastAPI, Pydantic v2, async SQLAlchemy 2.0, Alembic, aiogram 3, Celery, REST API, JWT, RBAC</div>
 <div class="skills-row"><b>LLM / AI:</b> OpenAI SDK, Google Gemini, xAI Grok (OAuth + Agent Tools), MiMo, OpenRouter, RAG (sqlite-vec, fastembed), prompt engineering, structured output, function calling, multi-provider роутеры с circuit breaker</div>
 <div class="skills-row"><b>Frontend:</b> React 18, Next.js 14 (App Router), Tailwind CSS, TanStack Query, recharts</div>
-<div class="skills-row"><b>Data / Infra:</b> PostgreSQL 16, Redis, MinIO (S3), Docker, Docker Compose, Caddy, Hetzner, Linux</div>
-<div class="skills-row"><b>Quality:</b> pytest, testcontainers, respx, ruff, mypy (strict), pre-commit, gitleaks, structlog, Sentry</div>
+<div class="skills-row"><b>Data / Infra:</b> PostgreSQL 16, Redis, MinIO (S3), Docker, Docker Compose, Caddy, Hetzner, Linux, CSV/XLSX automation</div>
+<div class="skills-row"><b>Quality:</b> pytest, testcontainers, respx, ruff, mypy, pre-commit, gitleaks, structlog, Sentry</div>
 <div class="skills-row"><b>CI / Tools:</b> GitHub Actions, Git, Alembic, OpenAPI</div>
 
 <h2>Образование</h2>
