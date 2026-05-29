@@ -4,12 +4,12 @@
 
 ## Готовые PDF
 
-- [`kudnever-cv-en.pdf`](kudnever-cv-en.pdf) · английская версия (EU / LinkedIn / прямой аутрич)
-- [`kudnever-cv-ru.pdf`](kudnever-cv-ru.pdf) · русская версия (hh.ru / RU-аутрич)
+- [`IliaMalkin-cv-en.pdf`](IliaMalkin-cv-en.pdf) · английская версия (EU / LinkedIn / прямой аутрич)
+- [`IliaMalkin-cv-ru.pdf`](IliaMalkin-cv-ru.pdf) · русская версия (hh.ru / RU-аутрич)
 
 Прямые ссылки для отправки рекрутерам:
-- https://github.com/kudnever/cv/raw/main/kudnever-cv-en.pdf
-- https://github.com/kudnever/cv/raw/main/kudnever-cv-ru.pdf
+- https://github.com/IliaMalkin/cv/raw/main/IliaMalkin-cv-en.pdf
+- https://github.com/IliaMalkin/cv/raw/main/IliaMalkin-cv-ru.pdf
 
 ## Source
 
@@ -28,9 +28,9 @@ $profile = "$env:TEMP\edge-cv"
 
 & $edge --headless --disable-gpu --no-pdf-header-footer --print-to-pdf-no-header `
   --user-data-dir=$profile `
-  --print-to-pdf="kudnever-cv-en.pdf" "file:///$(Resolve-Path cv-en-pdf.html)"
+  --print-to-pdf="IliaMalkin-cv-en.pdf" "file:///$(Resolve-Path cv-en-pdf.html)"
 
 & $edge --headless --disable-gpu --no-pdf-header-footer --print-to-pdf-no-header `
   --user-data-dir=$profile `
-  --print-to-pdf="kudnever-cv-ru.pdf" "file:///$(Resolve-Path cv-ru-pdf.html)"
+  --print-to-pdf="IliaMalkin-cv-ru.pdf" "file:///$(Resolve-Path cv-ru-pdf.html)"
 ```
